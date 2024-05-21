@@ -33,6 +33,10 @@ const router = createRouter({
           component: () => import('../pages/tables.vue'),
         },
         {
+          path: 'colores',
+          component: () => import('../pages/colores.vue'),
+        },
+        {
           path: 'form-layouts',
           component: () => import('../pages/form-layouts.vue'),
         },

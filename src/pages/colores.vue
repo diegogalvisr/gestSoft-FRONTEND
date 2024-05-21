@@ -1,5 +1,5 @@
 <script setup>
-import DemoSimpleTableHeight from '@/views/pages/tables/DemoSimpleTableHeight.vue';
+import DemoSimpleTableHeight from '@/views/pages/colores/DemoSimpleTableHeight.vue';
 </script>
 
 <template>
@@ -16,11 +16,11 @@ import DemoSimpleTableHeight from '@/views/pages/tables/DemoSimpleTableHeight.vu
     <VCol cols="12">
       <VCard title="Tallas Disponibles">
         <VCardText>
-            <VBtn href="\dashboard">Nueva Talla</VBtn>
+            <VBtn href="\dashboard">Nuevo Color</VBtn>
         </VCardText>
 
         <VCardText>
-         Aqui puedes visualizar las tallas registradas actualmente.
+         Aqui puedes visualizar los colores registradas actualmente.
         </VCardText>
         <DemoSimpleTableHeight />
       </VCard>

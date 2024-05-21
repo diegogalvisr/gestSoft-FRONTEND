@@ -37,7 +37,7 @@ const vuetifyTheme = useTheme()
 
           <span class="d-none d-md-flex align-center text-disabled">
             <span class="me-3">Search</span>
-            <span class="meta-key">&#8984;K</span>
+            <span class="meta-key">&#8984;YKSOGEID</span>
           </span>
         </div>
 
@@ -135,9 +135,16 @@ const vuetifyTheme = useTheme()
       />
       <VerticalNavLink
         :item="{
-          title: 'Tables',
-          icon: 'bx-table',
+          title: 'Tallas',
+          icon: 'bx-sitemap',
           to: '/tables',
+        }"
+      />
+      <VerticalNavLink
+        :item="{
+          title: 'Colores',
+          icon: 'bx-sitemap',
+          to: '/colores',
         }"
       />
       <VerticalNavLink

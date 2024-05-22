@@ -1,5 +1,37 @@
 <script setup>
-import avatar1 from '@images/avatars/avatar-1.png'
+import avatar1 from '@images/avatars/avatar-1.png';
+import axios from 'axios';
+import { useRouter } from 'vue-router';
+const nombre = localStorage.getItem('name');
+const correo = localStorage.getItem('email');
+const router = useRouter();
+
+const logout = async () => {
+  try {
+    const accessToken = localStorage.getItem('accessToken');
+    const response = await axios({
+      method: 'get',
+      url: 'http://localhost:8000/api/logout',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        Accept: 'application/json',
+      },
+    });
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('email');
+    localStorage.removeItem('name');
+    router.push('/login');
+    if (response.data && response.data.message) {
+      window.alert(response.data.message);
+    } else {
+      console.error('Error al cerrar sesión: Respuesta inesperada', response);
+    }
+  } catch (error) {
+    console.error('Error al cerrar sesión:', error.response.data.message);
+  }
+};
+
+
 </script>
 
 <template>
@@ -48,9 +80,9 @@ import avatar1 from '@images/avatars/avatar-1.png'
             </template>
 
             <VListItemTitle class="font-weight-semibold">
-              John Doe
+              {{nombre}}
             </VListItemTitle>
-            <VListItemSubtitle>Admin</VListItemSubtitle>
+            <VListItemSubtitle>{{correo}}</VListItemSubtitle>
           </VListItem>
           <VDivider class="my-2" />
 
@@ -110,7 +142,7 @@ import avatar1 from '@images/avatars/avatar-1.png'
           <VDivider class="my-2" />
 
           <!-- 👉 Logout -->
-          <VListItem to="/login">
+          <VListItem @click="logout">
             <template #prepend>
               <VIcon
                 class="me-2"

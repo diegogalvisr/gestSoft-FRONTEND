@@ -1,16 +1,3 @@
-<script setup>
-import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
-import logo from '@images/logo.svg?raw'
-
-const form = ref({
-  email: '',
-  password: '',
-  remember: false,
-})
-
-const isPasswordVisible = ref(false)
-</script>
-
 <template>
   <div class="auth-wrapper d-flex align-center justify-center pa-4">
     <VCard
@@ -28,21 +15,21 @@ const isPasswordVisible = ref(false)
         </template>
 
         <VCardTitle class="text-2xl font-weight-bold">
-          sneat
+          YKSOGEID
         </VCardTitle>
       </VCardItem>
 
       <VCardText class="pt-2">
         <h5 class="text-h5 mb-1">
-          Welcome to sneat! 👋🏻
+          Bienvenido a GestSoft! 👋🏻
         </h5>
         <p class="mb-0">
-          Please sign-in to your account and start the adventure
+          Porfavor ingresa tus credenciales para que inicies la aventura!
         </p>
       </VCardText>
 
       <VCardText>
-        <VForm @submit.prevent="$router.push('/')">
+        <VForm @submit.prevent="login">
           <VRow>
             <!-- email -->
             <VCol cols="12">
@@ -50,7 +37,7 @@ const isPasswordVisible = ref(false)
                 v-model="form.email"
                 autofocus
                 placeholder="johndoe@email.com"
-                label="Email"
+                label="Correo"
                 type="email"
               />
             </VCol>
@@ -59,7 +46,7 @@ const isPasswordVisible = ref(false)
             <VCol cols="12">
               <VTextField
                 v-model="form.password"
-                label="Password"
+                label="Contraseña"
                 placeholder="············"
                 :type="isPasswordVisible ? 'text' : 'password'"
                 :append-inner-icon="isPasswordVisible ? 'bx-hide' : 'bx-show'"
@@ -70,14 +57,14 @@ const isPasswordVisible = ref(false)
               <div class="d-flex align-center justify-space-between flex-wrap mt-1 mb-4">
                 <VCheckbox
                   v-model="form.remember"
-                  label="Remember me"
+                  label="Recordarme"
                 />
 
                 <RouterLink
                   class="text-primary ms-2 mb-1"
                   to="javascript:void(0)"
                 >
-                  Forgot Password?
+                  Olvido su contraseña?
                 </RouterLink>
               </div>
 
@@ -86,7 +73,7 @@ const isPasswordVisible = ref(false)
                 block
                 type="submit"
               >
-                Login
+                Iniciar Sesion
               </VBtn>
             </VCol>
 
@@ -95,22 +82,13 @@ const isPasswordVisible = ref(false)
               cols="12"
               class="text-center text-base"
             >
-              <span>New on our platform?</span>
+              <span>Nuevo en la plataforma?</span>
               <RouterLink
                 class="text-primary ms-2"
                 to="/register"
               >
-                Create an account
+                Registrate aqui!
               </RouterLink>
-            </VCol>
-
-            <VCol
-              cols="12"
-              class="d-flex align-center"
-            >
-              <VDivider />
-              <span class="mx-4">or</span>
-              <VDivider />
             </VCol>
 
             <!-- auth providers -->
@@ -124,8 +102,47 @@ const isPasswordVisible = ref(false)
         </VForm>
       </VCardText>
     </VCard>
+
   </div>
 </template>
+
+<script setup>
+import axios from 'axios';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const form = ref({
+  email: '',
+  password: '',
+  remember: false,
+});
+
+const isPasswordVisible = ref(false);
+
+const login = async () => {
+  try {
+    const response = await axios.post('http://localhost:8000/api/login', {
+      email: form.value.email,
+      password: form.value.password,
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+    });
+    alert( response.data.message );
+    localStorage.setItem('accessToken', response.data.accessToken);
+    localStorage.setItem('name', response.data.user.name);
+    localStorage.setItem('email', response.data.user.email);
+    router.push('/dashboard');
+  } catch (error) {
+    alert('Usuario o contraseña incorrecta');
+  }
+};
+
+</script>
 
 <style lang="scss">
 @use "@core/scss/template/pages/page-auth.scss";

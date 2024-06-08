@@ -137,7 +137,7 @@ const vuetifyTheme = useTheme()
         :item="{
           title: 'Tallas',
           icon: 'bx-sitemap',
-          to: '/tables',
+          to: '/tallas',
         }"
       />
       <VerticalNavLink

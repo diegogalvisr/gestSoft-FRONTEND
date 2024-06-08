@@ -123,7 +123,7 @@ const isPasswordVisible = ref(false);
 
 const login = async () => {
   try {
-    const response = await axios.post('http://localhost:8000/api/login', {
+    const response = await axios.post('http://localhost:8000/api/YKSecurity/login', {
       email: form.value.email,
       password: form.value.password,
     }, {
@@ -132,11 +132,20 @@ const login = async () => {
         'Accept': 'application/json',
       },
     });
-    alert( response.data.message );
-    localStorage.setItem('accessToken', response.data.accessToken);
-    localStorage.setItem('name', response.data.user.name);
-    localStorage.setItem('email', response.data.user.email);
+    alert('YKS SECURITY: Te has logeado correctamente.');
+    localStorage.setItem('accessToken', response.data.access_token);
+    localStorage.setItem('expiraEn', response.data.expires_in);
     router.push('/dashboard');
+
+    // Solicitud para obtener los datos del usuario autenticado
+    const userResponse = await axios.post('http://localhost:8000/api/YKSecurity/me', {}, {
+      headers: {
+        'Authorization': `Bearer ${response.data.access_token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    localStorage.setItem('name', userResponse.data.name);
+    localStorage.setItem('email', userResponse.data.email);
   } catch (error) {
     alert('Usuario o contraseña incorrecta');
   }

@@ -10,8 +10,8 @@ const logout = async () => {
   try {
     const accessToken = localStorage.getItem('accessToken');
     const response = await axios({
-      method: 'get',
-      url: 'http://localhost:8000/api/logout',
+      method: 'POST',
+      url: 'http://localhost:8000/api/YKSecurity/logout',
       headers: {
         Authorization: `Bearer ${accessToken}`,
         Accept: 'application/json',
@@ -151,7 +151,7 @@ const logout = async () => {
               />
             </template>
 
-            <VListItemTitle>Logout</VListItemTitle>
+            <VListItemTitle>Cerrar Sesion</VListItemTitle>
           </VListItem>
         </VList>
       </VMenu>

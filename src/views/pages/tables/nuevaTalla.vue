@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue'
-import axios from 'axios'
+import axios from 'axios';
+import { ref } from 'vue';
 
 const toast = useToast()
 
@@ -21,7 +21,7 @@ const guardarTalla = () => {
     return;
   }
 
-  axios.post("http://localhost:8000/api/YKSecurity/register-talla", {
+  axios.post("http://192.168.80.10:8000/api/YKSecurity/register-talla", {
     nombre: reseteoLocal.value.talla
   }, {
     headers: {

@@ -11,7 +11,7 @@ const logout = async () => {
     const accessToken = localStorage.getItem('accessToken');
     const response = await axios({
       method: 'POST',
-      url: 'http://localhost:8000/api/YKSecurity/logout',
+      url: 'http://192.168.80.10:8000/api/YKSecurity/logout',
       headers: {
         Authorization: `Bearer ${accessToken}`,
         Accept: 'application/json',

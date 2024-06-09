@@ -1,8 +1,7 @@
 <script setup>
-import { hexToRgb } from '@layouts/utils';
-import { useTheme } from 'vuetify';
-import { ref, onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useTheme } from 'vuetify';
 
 const { global } = useTheme();
 const router = useRouter();
@@ -12,7 +11,7 @@ const accessToken = ref(localStorage.getItem('accessToken'));
 const clearAccessToken = () => {
   alert('YKS SECURITY: Has estado logeado durante 30 segundos, logeate nuevamente');
   localStorage.removeItem('accessToken');
-  accessToken.value = null; 
+  accessToken.value = null;
   router.go();
 };
 
@@ -24,7 +23,14 @@ onMounted(() => {
 </script>
 
 <template>
+
+
+
+
+
   <VApp :style="`--v-global-theme-primary: ${hexToRgb(global.current.value.colors.primary)}`">
     <RouterView />
   </VApp>
 </template>
+
+<style lang="scss"></style>

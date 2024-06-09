@@ -123,7 +123,7 @@ const isPasswordVisible = ref(false);
 
 const login = async () => {
   try {
-    const response = await axios.post('http://localhost:8000/api/YKSecurity/login', {
+    const response = await axios.post('http://192.168.80.10:8000/api/YKSecurity/login', {
       email: form.value.email,
       password: form.value.password,
     }, {
@@ -138,7 +138,7 @@ const login = async () => {
     router.push('/dashboard');
 
     // Solicitud para obtener los datos del usuario autenticado
-    const userResponse = await axios.post('http://localhost:8000/api/YKSecurity/me', {}, {
+    const userResponse = await axios.post('http://192.168.80.10:8000/api/YKSecurity/me', {}, {
       headers: {
         'Authorization': `Bearer ${response.data.access_token}`,
         'Content-Type': 'application/json',

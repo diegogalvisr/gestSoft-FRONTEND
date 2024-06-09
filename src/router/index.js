@@ -8,7 +8,7 @@ const router = createRouter({
       redirect: () => {
         const accessToken = localStorage.getItem('accessToken');
         if (!accessToken) {
-          return '/login';
+          return '/home';
         } else {
           return '/dashboard';
         }
@@ -33,6 +33,7 @@ const router = createRouter({
       component: () => import('../layouts/blank.vue'),
       children: [
         { path: 'login', component: () => import('../pages/login.vue'), meta: { requiresAuth: false } },
+        { path: 'home', component: () => import('../pages/home.vue'), meta: { requiresAuth: false } },
         { path: 'register', component: () => import('../pages/register.vue') },
         { path: '/:pathMatch(.*)*', component: () => import('../pages/[...all].vue') },
       ],

@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useTheme } from 'vuetify';
+import { hexToRgb } from './@layouts/utils';
 
 const { global } = useTheme();
 const router = useRouter();
@@ -23,11 +24,6 @@ onMounted(() => {
 </script>
 
 <template>
-
-
-
-
-
   <VApp :style="`--v-global-theme-primary: ${hexToRgb(global.current.value.colors.primary)}`">
     <RouterView />
   </VApp>

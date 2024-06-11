@@ -7,7 +7,7 @@
             <p class="text-center"><strong>${{ price }}</strong></p>
         </div>
         <footer class="flex items-center justify-center">
-            <button class="border rounded-md  border-black px-2 py-1">Agregar al carrito</button>
+            <button class="border rounded-md  border-black px-2 py-1"><a href="formulario">Estoy Interesado</a></button>
         </footer>
     </article>
 </template>

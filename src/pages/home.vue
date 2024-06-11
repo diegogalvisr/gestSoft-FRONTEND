@@ -6,28 +6,60 @@
         <nav>
             <ul class="text-white flex gap-5">
                 <li class="hover:underline"><a href="#">Inicio</a></li>
-                <li class="hover:underline"><a href="#">Productos</a></li>
+                <li class="hover:underline"><a href="#productos">Productos</a></li>
                 <li class="hover:underline"><a href="#about">Sobre nosotros</a></li>
                 <li class="hover:underline"><a href="login">Iniciar Sesión</a></li>
-                <li class="hover:underline"><a href="#">Registrarse</a></li>
+                <li class="hover:underline"><a href="formulario">Registrarse</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="w-full">
-            <img class="object-cover w-full h-[40vh]" src="https://loremflickr.com/640/360" alt="">
+            <img class="object-cover w-full h-[80vh]" src="https://loremflickr.com/320/240/shirt" alt="">
         </section>
         <div class="mx-32">
 
             <section class="py-4">
-                <h1 class="text-center font-bold text-2xl">
+                <h1 id="productos" class="text-center font-bold text-2xl">
                     PRODUCTOS
                 </h1>
                 <div class="py-4 flex flex-wrap gap-2 justify-center">
-                    <Product v-for="(_, index) in 10" :key="index" name="XTZ 150" description="La mejor moto del mundo"
-                        price="1'000.000.000.000.000"
-                        imageUrl="https://www.incolmotos-yamaha.com.co/wp-content/uploads/2019/09/xtz150_azul.png" />
-
+                    <Product name="POLO PREMIUM REGULAR FIT PARA HOMBRE"
+                        description="Adipisicing consectetur sunt enim ad qui est quis commodo in nostrud enim elit."
+                        price="1'000"
+                        imageUrl="https://arturocalle.vtexassets.com/arquivos/ids/532416-800-1067?v=638119858475330000&width=800&height=1067&aspect=true" />
+                    <Product name="POLO A RAYAS JERSEY SLIM FIT PARA HOMBRE"
+                        description="Sint irure consequat incididunt exercitation occaecat sunt mollit id irure."
+                        price="1'000"
+                        imageUrl="https://arturocalle.vtexassets.com/arquivos/ids/637211-800-1067?v=638527589579830000&width=800&height=1067&aspect=true" />
+                    <Product name="POLO A RAYAS JERSEY SLIM FIT PARA HOMBRE"
+                        description="Velit nulla esse culpa nulla officia." price="1'000"
+                        imageUrl=" https://arturocalle.vtexassets.com/arquivos/ids/534516-800-1067?v=638126952589000000&width=800&height=1067&aspect=true" />
+                    <Product name="  CAMISETA POLO BUSSINES PARA HOMBRE"
+                        description="Velit nulla esse culpa nulla officia." price="1'000"
+                        imageUrl=" https://arturocalle.vtexassets.com/arquivos/ids/593192-800-1067?v=638349925497730000&width=800&height=1067&aspect=true" />
+                    <Product name="POLO PREMIUM REGULAR FIT PARA HOMBRE"
+                        description="Adipisicing consectetur sunt enim ad qui est quis commodo in nostrud enim elit."
+                        price="1'000"
+                        imageUrl="https://arturocalle.vtexassets.com/arquivos/ids/532416-800-1067?v=638119858475330000&width=800&height=1067&aspect=true" />
+                    <Product name="POLO A RAYAS JERSEY SLIM FIT PARA HOMBRE"
+                        description="Sint irure consequat incididunt exercitation occaecat sunt mollit id irure."
+                        price="1'000"
+                        imageUrl="https://arturocalle.vtexassets.com/arquivos/ids/637211-800-1067?v=638527589579830000&width=800&height=1067&aspect=true" />
+                    <Product name="POLO A RAYAS JERSEY SLIM FIT PARA HOMBRE"
+                        description="Velit nulla esse culpa nulla officia." price="1'000"
+                        imageUrl=" https://arturocalle.vtexassets.com/arquivos/ids/534516-800-1067?v=638126952589000000&width=800&height=1067&aspect=true" />
+                    <Product name="  CAMISETA POLO BUSSINES PARA HOMBRE"
+                        description="Velit nulla esse culpa nulla officia." price="1'000"
+                        imageUrl=" https://arturocalle.vtexassets.com/arquivos/ids/593192-800-1067?v=638349925497730000&width=800&height=1067&aspect=true" />
+                    <Product name="POLO PREMIUM REGULAR FIT PARA HOMBRE"
+                        description="Adipisicing consectetur sunt enim ad qui est quis commodo in nostrud enim elit."
+                        price="1'000"
+                        imageUrl="https://arturocalle.vtexassets.com/arquivos/ids/532416-800-1067?v=638119858475330000&width=800&height=1067&aspect=true" />
+                    <Product name="POLO A RAYAS JERSEY SLIM FIT PARA HOMBRE"
+                        description="Sint irure consequat incididunt exercitation occaecat sunt mollit id irure."
+                        price="1'000"
+                        imageUrl="https://arturocalle.vtexassets.com/arquivos/ids/637211-800-1067?v=638527589579830000&width=800&height=1067&aspect=true" />
                 </div>
             </section>
 

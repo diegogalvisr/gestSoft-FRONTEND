@@ -11,7 +11,7 @@ const logout = async () => {
     const accessToken = localStorage.getItem('accessToken');
     const response = await axios({
       method: 'POST',
-      url: 'http://192.168.80.10:8000/api/YKSecurity/logout',
+      url: 'http://localhost:8000/api/YKSecurity/logout',
       headers: {
         Authorization: `Bearer ${accessToken}`,
         Accept: 'application/json',
@@ -35,44 +35,19 @@ const logout = async () => {
 </script>
 
 <template>
-  <VBadge
-    dot
-    location="bottom right"
-    offset-x="3"
-    offset-y="3"
-    color="success"
-    bordered
-  >
-    <VAvatar
-      class="cursor-pointer"
-      color="primary"
-      variant="tonal"
-    >
+  <VBadge dot location="bottom right" offset-x="3" offset-y="3" color="success" bordered>
+    <VAvatar class="cursor-pointer" color="primary" variant="tonal">
       <VImg :src="avatar1" />
 
       <!-- SECTION Menu -->
-      <VMenu
-        activator="parent"
-        width="230"
-        location="bottom end"
-        offset="14px"
-      >
+      <VMenu activator="parent" width="230" location="bottom end" offset="14px">
         <VList>
           <!-- 👉 User Avatar & Name -->
           <VListItem>
             <template #prepend>
               <VListItemAction start>
-                <VBadge
-                  dot
-                  location="bottom right"
-                  offset-x="3"
-                  offset-y="3"
-                  color="success"
-                >
-                  <VAvatar
-                    color="primary"
-                    variant="tonal"
-                  >
+                <VBadge dot location="bottom right" offset-x="3" offset-y="3" color="success">
+                  <VAvatar color="primary" variant="tonal">
                     <VImg :src="avatar1" />
                   </VAvatar>
                 </VBadge>
@@ -80,20 +55,16 @@ const logout = async () => {
             </template>
 
             <VListItemTitle class="font-weight-semibold">
-              {{nombre}}
+              {{ nombre }}
             </VListItemTitle>
-            <VListItemSubtitle>{{correo}}</VListItemSubtitle>
+            <VListItemSubtitle>{{ correo }}</VListItemSubtitle>
           </VListItem>
           <VDivider class="my-2" />
 
           <!-- 👉 Profile -->
           <VListItem link>
             <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="bx-user"
-                size="22"
-              />
+              <VIcon class="me-2" icon="bx-user" size="22" />
             </template>
 
             <VListItemTitle>Profile</VListItemTitle>
@@ -102,11 +73,7 @@ const logout = async () => {
           <!-- 👉 Settings -->
           <VListItem link>
             <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="bx-cog"
-                size="22"
-              />
+              <VIcon class="me-2" icon="bx-cog" size="22" />
             </template>
 
             <VListItemTitle>Settings</VListItemTitle>
@@ -115,11 +82,7 @@ const logout = async () => {
           <!-- 👉 Pricing -->
           <VListItem link>
             <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="bx-dollar"
-                size="22"
-              />
+              <VIcon class="me-2" icon="bx-dollar" size="22" />
             </template>
 
             <VListItemTitle>Pricing</VListItemTitle>
@@ -128,11 +91,7 @@ const logout = async () => {
           <!-- 👉 FAQ -->
           <VListItem link>
             <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="bx-help-circle"
-                size="22"
-              />
+              <VIcon class="me-2" icon="bx-help-circle" size="22" />
             </template>
 
             <VListItemTitle>FAQ</VListItemTitle>
@@ -144,11 +103,7 @@ const logout = async () => {
           <!-- 👉 Logout -->
           <VListItem @click="logout">
             <template #prepend>
-              <VIcon
-                class="me-2"
-                icon="bx-log-out"
-                size="22"
-              />
+              <VIcon class="me-2" icon="bx-log-out" size="22" />
             </template>
 
             <VListItemTitle>Cerrar Sesion</VListItemTitle>

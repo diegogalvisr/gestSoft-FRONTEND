@@ -22,7 +22,7 @@ export default {
       }
 
       axios
-        .get("http://192.168.80.10:8000/api/YKSecurity/listaTallas", {
+        .get("http://localhost:8000/api/YKSecurity/listaTallas", {
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',

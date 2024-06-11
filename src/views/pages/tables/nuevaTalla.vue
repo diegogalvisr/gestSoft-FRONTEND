@@ -29,18 +29,18 @@ const guardarTalla = () => {
       'Authorization': `Bearer ${token}`
     }
   })
-  .then((response) => {
-    console.log("Talla registrada exitosamente:", response.data)
-    window.alert(response.data);
-    resetForm()
-    // Mostrar notificación de éxito
-    toast.success('Talla registrada exitosamente')
-  })
-  .catch((error) => {
-    console.error("Error al registrar la talla:", error)
-    // Mostrar notificación de error
-    toast.error('Error al registrar la talla')
-  })
+    .then((response) => {
+      console.log("Talla registrada exitosamente:", response.data)
+      window.alert(response.data);
+      resetForm()
+      // Mostrar notificación de éxito
+      toast.success('Talla registrada exitosamente')
+    })
+    .catch((error) => {
+      console.error("Error al registrar la talla:", error)
+      // Mostrar notificación de error
+      toast.error('Error al registrar la talla')
+    })
 }
 </script>
 
@@ -64,29 +64,16 @@ const guardarTalla = () => {
           <VForm class="mt-6">
             <VRow>
               <!-- 👉 Aquí se ingresa el nombre de la nueva Talla -->
-              <VCol
-                md="6"
-                cols="12"
-              >
-                <VTextField
-                  v-model="reseteoLocal.talla"
-                  label="Talla"
-                />
+              <VCol md="6" cols="12">
+                <VTextField v-model="reseteoLocal.talla" label="Talla" />
               </VCol>
 
               <!-- 👉 Acciones del formulario -->
-              <VCol
-                cols="12"
-                class="d-flex flex-wrap gap-4"
-              >
-                <VBtn @click="guardarTalla">Agregar</VBtn> <!-- Llama a la función guardarTalla cuando se hace clic en Agregar -->
+              <VCol cols="12" class="d-flex flex-wrap gap-4">
+                <VBtn @click="guardarTalla">Agregar</VBtn>
+                <!-- Llama a la función guardarTalla cuando se hace clic en Agregar -->
 
-                <VBtn
-                  color="secondary"
-                  variant="tonal"
-                  type="reset"
-                  @click.prevent="resetForm"
-                >
+                <VBtn color="secondary" variant="tonal" type="reset" @click.prevent="resetForm">
                   Reset
                 </VBtn>
               </VCol>

@@ -34,6 +34,7 @@ const router = createRouter({
       children: [
         { path: 'login', component: () => import('../pages/login.vue'), meta: { requiresAuth: false } },
         { path: 'home', component: () => import('../pages/home.vue'), meta: { requiresAuth: false } },
+        { path: 'formulario', component: () => import('../pages/formulario.vue'), meta: { requiresAuth: false } },
         { path: 'register', component: () => import('../pages/register.vue') },
         { path: '/:pathMatch(.*)*', component: () => import('../pages/[...all].vue') },
       ],

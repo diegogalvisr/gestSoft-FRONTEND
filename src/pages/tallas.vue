@@ -1,5 +1,5 @@
 <script setup>
-import nuevaTalla from '@/views/pages/tables/nuevaTalla.vue';
+import nuevaTallas from '@/views/pages/tables/account-settings.vue';
 import listadoTallas from '@/views/pages/tables/listadoTallas.vue';
 import { useRoute } from 'vue-router';
 
@@ -8,7 +8,7 @@ const activeTab = ref(route.params.tab)
 
 // tabs
 const tabs = [
-  
+
   {
     title: 'Listado Tallas',
     icon: 'bx-lock-open',
@@ -24,36 +24,22 @@ const tabs = [
 
 <template>
   <div>
-    <VTabs
-      v-model="activeTab"
-      show-arrows
-    >
-      <VTab
-        v-for="item in tabs"
-        :key="item.icon"
-        :value="item.tab"
-      >
-        <VIcon
-          size="20"
-          start
-          :icon="item.icon"
-        />
+    <VTabs v-model="activeTab" show-arrows>
+      <VTab v-for="item in tabs" :key="item.icon" :value="item.tab">
+        <VIcon size="20" start :icon="item.icon" />
         {{ item.title }}
       </VTab>
     </VTabs>
     <VDivider />
 
-    <VWindow
-      v-model="activeTab"
-      class="mt-5 disable-tab-transition"
-    >
+    <VWindow v-model="activeTab" class="mt-5 disable-tab-transition">
       <!-- Listado Tallas -->
       <VWindowItem value="listTallas">
         <listadoTallas />
       </VWindowItem>
       <!-- Account -->
       <VWindowItem value="newTalla">
-        <nuevaTalla />
+        <nuevaTallas />
       </VWindowItem>
     </VWindow>
   </div>

@@ -18,18 +18,12 @@ const vuetifyTheme = useTheme()
     <template #navbar="{ toggleVerticalOverlayNavActive }">
       <div class="d-flex h-100 align-center">
         <!-- 👉 Vertical nav toggle in overlay mode -->
-        <IconBtn
-          class="ms-n3 d-lg-none"
-          @click="toggleVerticalOverlayNavActive(true)"
-        >
+        <IconBtn class="ms-n3 d-lg-none" @click="toggleVerticalOverlayNavActive(true)">
           <VIcon icon="bx-menu" />
         </IconBtn>
 
         <!-- 👉 Search -->
-        <div
-          class="d-flex align-center cursor-pointer"
-          style="user-select: none;"
-        >
+        <div class="d-flex align-center cursor-pointer" style="user-select: none;">
           <!-- 👉 Search Trigger button -->
           <IconBtn>
             <VIcon icon="bx-search" />
@@ -43,12 +37,8 @@ const vuetifyTheme = useTheme()
 
         <VSpacer />
 
-        <IconBtn
-          class="me-2"
-          href="https://github.com/themeselection/sneat-vuetify-vuejs-admin-template-free"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <IconBtn class="me-2" href="https://github.com/themeselection/sneat-vuetify-vuejs-admin-template-free"
+          target="_blank" rel="noopener noreferrer">
           <VIcon icon="bxl-github" />
         </IconBtn>
 
@@ -63,108 +53,49 @@ const vuetifyTheme = useTheme()
     </template>
 
     <template #vertical-nav-content>
-      <VerticalNavLink
-        :item="{
-          title: 'Dashboards',
-          icon: 'bx-home',
-          to: '/dashboard',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Configurar Cuenta',
-          icon: 'mdi-account-cog-outline',
-          to: '/configurar-cuenta',
-        }"
-      />
-
-      <!-- 👉 Pages -->
-      <VerticalNavSectionTitle
-        :item="{
-          heading: 'Pages',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Login',
-          icon: 'bx-log-in',
-          to: '/login',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Register',
-          icon: 'bx-user-plus',
-          to: '/register',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Error',
-          icon: 'bx-info-circle',
-          to: '/no-existence',
-        }"
-      />
+      <VerticalNavLink :item="{
+        title: 'Dashboards',
+        icon: 'bx-home',
+        to: '/dashboard',
+      }" />
+      <VerticalNavLink :item="{
+        title: 'Configurar Cuenta',
+        icon: 'mdi-account-cog-outline',
+        to: '/configurar-cuenta',
+      }" />
 
       <!-- 👉 User Interface -->
-      <VerticalNavSectionTitle
-        :item="{
-          heading: 'User Interface',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Typography',
-          icon: 'mdi-alpha-t-box-outline',
-          to: '/typography',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Icons',
-          icon: 'bx-show',
-          to: '/icons',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Cards',
-          icon: 'bx-credit-card',
-          to: '/cards',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Tallas',
-          icon: 'bx-sitemap',
-          to: '/tallas',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Colores',
-          icon: 'bx-sitemap',
-          to: '/colores',
-        }"
-      />
-      <VerticalNavLink
-        :item="{
-          title: 'Form Layouts',
-          icon: 'mdi-form-select',
-          to: '/form-layouts',
-        }"
-      />
+      <VerticalNavSectionTitle :item="{
+        heading: 'Interfaz de usuario',
+      }" />
+
+      <VerticalNavLink :item="{
+        title: 'Tallas',
+        icon: 'bx-ruler',
+        to: '/tallas',
+      }" />
+      <VerticalNavLink :item="{
+        title: 'Colores',
+        icon: 'bxs-color',
+        to: '/cards',
+      }" />
+      <VerticalNavLink :item="{
+        title: 'Solicitudes',
+        icon: 'mdi-form-select',
+        to: '/versolicitudes',
+      }" />
+      <VerticalNavLink :item="{
+        title: 'Productos',
+        icon: 'bxs-collection',
+        to: '/icons',
+      }" />
     </template>
 
     <template #after-vertical-nav-items>
       <!-- 👉 illustration -->
-      <a
-        href="https://themeselection.com/item/sneat-vuetify-vuejs-admin-template"
-        target="_blank"
-        rel="noopener noreferrer"
-        style="margin-left: 7px;"
-      >
-       
+      <a href="https://themeselection.com/item/sneat-vuetify-vuejs-admin-template" target="_blank"
+        rel="noopener noreferrer" style="margin-left: 7px;">
+
       </a>
     </template>
 

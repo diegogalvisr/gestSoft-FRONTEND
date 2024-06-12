@@ -9,7 +9,7 @@
         </template>
 
         <VCardTitle class="text-2xl font-weight-bold">
-          YKSOGEID
+          GETSOFT INVENTARY
         </VCardTitle>
       </VCardItem>
 
@@ -27,7 +27,7 @@
           <VRow>
             <!-- email -->
             <VCol cols="12">
-              <VTextField v-model="form.email" autofocus placeholder="johndoe@email.com" label="Correo" type="email" />
+              <VTextField v-model="form.email" autofocus placeholder="test@example.com" label="Correo" type="email" />
             </VCol>
 
             <!-- password -->
@@ -39,25 +39,13 @@
 
               <!-- remember me checkbox -->
               <div class="d-flex align-center justify-space-between flex-wrap mt-1 mb-4">
-                <VCheckbox v-model="form.remember" label="Recordarme" />
 
-                <RouterLink class="text-primary ms-2 mb-1" to="javascript:void(0)">
-                  Olvido su contraseña?
-                </RouterLink>
               </div>
 
               <!-- login button -->
               <VBtn block type="submit">
                 Iniciar Sesion
               </VBtn>
-            </VCol>
-
-            <!-- create account -->
-            <VCol cols="12" class="text-center text-base">
-              <span>Nuevo en la plataforma?</span>
-              <RouterLink class="text-primary ms-2" to="/register">
-                Registrate aqui!
-              </RouterLink>
             </VCol>
 
             <!-- auth providers -->

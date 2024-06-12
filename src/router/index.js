@@ -28,6 +28,7 @@ const router = createRouter({
         { path: 'form-layouts', component: () => import('../pages/form-layouts.vue'), meta: { requiresAuth: true } },
         { path: 'versolicitudes', component: () => import('../pages/versolicitudes.vue'), meta: { requiresAuth: true } },
         { path: 'colores', component: () => import('../pages/vercolores.vue'), meta: { requiresAuth: true } },
+        { path: 'productos', component: () => import('../pages/verproductos.vue'), meta: { requiresAuth: true } },
       ],
     },
     {

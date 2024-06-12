@@ -1,16 +1,14 @@
 <script setup>
-import { ref } from 'vue';
 
 const accountData = {
   firstName: ''
 }
 
 const refInputEl = ref()
-const accountDataLocal = ref(JSON.parse(JSON.stringify(accountData)))
+const accountDataLocal = ref(structuredClone(accountData))
 const isAccountDeactivated = ref(false)
-
 const resetForm = () => {
-  accountDataLocal.value = JSON.parse(JSON.stringify(accountData))
+  accountDataLocal.value = structuredClone(accountData)
 }
 
 const changeAvatar = file => {
@@ -30,34 +28,12 @@ const resetAvatar = () => {
   accountDataLocal.value.avatarImg = accountData.avatarImg
 }
 
-const token = localStorage.getItem('accessToken');
-const agregarTalla = async (accessToken) => {
-  try {
-    const response = await fetch('http://localhost:8000/api/YKSecurity/register-talla', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify({ nombre: accountDataLocal.value.firstName })
-    })
-    if (!response.ok) {
-      throw new Error('Network response was not ok')
-    }
-    // Puedes agregar aquí lógica adicional si es necesario después de hacer la solicitud
-    console.log('Talla agregada exitosamente')
-    alert('Talla agregada Exitosamente')
-    this.accountDataLocal.value.firstName = ''
-  } catch (error) {
-    console.error('Hubo un problema al agregar la talla:', error)
-  }
-}
 </script>
 
 <template>
   <VRow>
     <VCol cols="12">
-      <VCard title="Agregar nueva talla">
+      <VCard title="Agregar nuevo producto">
 
         <VCardText>
           <!-- 👉 Form -->
@@ -65,12 +41,12 @@ const agregarTalla = async (accessToken) => {
             <VRow>
               <!-- 👉 First Name -->
               <VCol md="6" cols="12">
-                <VTextField v-model="accountDataLocal.firstName" placeholder="John" label="Talla" />
+                <VTextField v-model="accountDataLocal.firstName" placeholder="example" label="Talla" />
               </VCol>
 
               <!-- 👉 Form Actions -->
               <VCol cols="12" class="d-flex flex-wrap gap-4">
-                <VBtn @click="agregarTalla('inserte aquí su token de acceso')">Agregar</VBtn>
+                <VBtn>Agregar</VBtn>
 
                 <VBtn color="secondary" variant="tonal" type="reset" @click.prevent="resetForm">
                   Limpiar

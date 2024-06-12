@@ -1,7 +1,5 @@
 <script setup>
 import listadoTallas from '@/views/pages/solicitudes/listadoSolicitudes.vue';
-import listadoVentas from '@/views/pages/solicitudes/listadoVentas.vue';
-import nuevaTallas from '@/views/pages/solicitudes/nuevaVenta.vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
@@ -14,16 +12,6 @@ const tabs = [
         title: 'Listado Solicitudes',
         icon: 'bx-lock-open',
         tab: 'listTallas',
-    },
-    {
-        title: 'Listado Ventas',
-        icon: 'bx-user',
-        tab: 'listVentas',
-    },
-    {
-        title: 'Nueva Venta',
-        icon: 'bx-user',
-        tab: 'newTalla',
     }
 ]
 </script>
@@ -43,13 +31,7 @@ const tabs = [
             <VWindowItem value="listTallas">
                 <listadoTallas />
             </VWindowItem>
-            <VWindowItem value="listVentas">
-                <listadoVentas />
-            </VWindowItem>
-            <!-- Account -->
-            <VWindowItem value="newTalla">
-                <nuevaTallas />
-            </VWindowItem>
+
         </VWindow>
     </div>
 </template>

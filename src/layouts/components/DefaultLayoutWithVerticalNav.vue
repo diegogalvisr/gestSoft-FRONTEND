@@ -87,7 +87,7 @@ const vuetifyTheme = useTheme()
       <VerticalNavLink :item="{
         title: 'Productos',
         icon: 'bxs-collection',
-        to: '/icons',
+        to: '/productos',
       }" />
     </template>
 

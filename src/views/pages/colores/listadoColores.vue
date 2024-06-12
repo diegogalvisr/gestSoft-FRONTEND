@@ -6,9 +6,9 @@ import DemoSimpleTableHeight from '@/views/pages/colores/consumoApiColores.vue';
 <template>
   <VRow>
     <VCol cols="12">
-      <VCard title="Tallas Disponibles">
+      <VCard title="Colores Disponibles">
         <VCardText>
-          Aqui puedes visualizar las tallas registradas actualmente.
+          Aqui puedes visualizar los colores registrados actualmente.
         </VCardText>
         <DemoSimpleTableHeight />
       </VCard>

@@ -9,7 +9,7 @@
                 <li class="hover:underline"><a href="#productos">Productos</a></li>
                 <li class="hover:underline"><a href="#about">Sobre nosotros</a></li>
                 <li class="hover:underline"><a href="login">Iniciar Sesión</a></li>
-                <li class="hover:underline"><a href="formulario">Registrarse</a></li>
+                <li class="hover:underline"><a href="formulario">Formulario Interes</a></li>
             </ul>
         </nav>
     </header>

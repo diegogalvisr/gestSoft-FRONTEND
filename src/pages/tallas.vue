@@ -1,6 +1,6 @@
 <script setup>
-import nuevaTallas from '@/views/pages/tables/account-settings.vue';
 import listadoTallas from '@/views/pages/tables/listadoTallas.vue';
+import nuevaTallas from '@/views/pages/tables/nuevaTalla.vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()

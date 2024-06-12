@@ -1,7 +1,6 @@
 <script setup>
-import listadoTallas from '@/views/pages/solicitudes/listadoSolicitudes.vue';
-import listadoVentas from '@/views/pages/solicitudes/listadoVentas.vue';
-import nuevaTallas from '@/views/pages/solicitudes/nuevaVenta.vue';
+import listadoColores from '@/views/pages/colores/listadoColores.vue';
+import nuevoColor from '@/views/pages/colores/nuevoColor.vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
@@ -11,19 +10,14 @@ const activeTab = ref(route.params.tab)
 const tabs = [
 
     {
-        title: 'Listado Solicitudes',
+        title: 'Listado Tallas',
         icon: 'bx-lock-open',
-        tab: 'listTallas',
+        tab: 'listColor',
     },
     {
-        title: 'Listado Ventas',
+        title: 'Nueva Talla',
         icon: 'bx-user',
-        tab: 'listVentas',
-    },
-    {
-        title: 'Nueva Venta',
-        icon: 'bx-user',
-        tab: 'newTalla',
+        tab: 'newColor',
     }
 ]
 </script>
@@ -40,15 +34,12 @@ const tabs = [
 
         <VWindow v-model="activeTab" class="mt-5 disable-tab-transition">
             <!-- Listado Tallas -->
-            <VWindowItem value="listTallas">
-                <listadoTallas />
-            </VWindowItem>
-            <VWindowItem value="listVentas">
-                <listadoVentas />
+            <VWindowItem value="listColor">
+                <listadoColores />
             </VWindowItem>
             <!-- Account -->
-            <VWindowItem value="newTalla">
-                <nuevaTallas />
+            <VWindowItem value="newColor">
+                <nuevoColor />
             </VWindowItem>
         </VWindow>
     </div>

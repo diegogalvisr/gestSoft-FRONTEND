@@ -24,9 +24,10 @@ const router = createRouter({
         { path: 'icons', component: () => import('../pages/icons.vue'), meta: { requiresAuth: true } },
         { path: 'cards', component: () => import('../pages/cards.vue'), meta: { requiresAuth: true } },
         { path: 'tallas', component: () => import('../pages/tallas.vue'), meta: { requiresAuth: true } },
-        { path: 'colores', component: () => import('../pages/colores.vue'), meta: { requiresAuth: true } },
+        { path: 'colores', component: () => import('../pages/vercolores.vue'), meta: { requiresAuth: true } },
         { path: 'form-layouts', component: () => import('../pages/form-layouts.vue'), meta: { requiresAuth: true } },
         { path: 'versolicitudes', component: () => import('../pages/versolicitudes.vue'), meta: { requiresAuth: true } },
+        { path: 'colores', component: () => import('../pages/vercolores.vue'), meta: { requiresAuth: true } },
       ],
     },
     {

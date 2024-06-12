@@ -1,13 +1,13 @@
-<script setup>
-import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue'
+<script setup>import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue'
 import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
 import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
 import { useTheme } from 'vuetify'
 
-// Components
-import Footer from '@/layouts/components/Footer.vue'
+
+// Componentsimport Footer from '@/layouts/components/Footer.vue'
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue'
 import UserProfile from '@/layouts/components/UserProfile.vue'
+
 
 const vuetifyTheme = useTheme()
 </script>
@@ -77,7 +77,7 @@ const vuetifyTheme = useTheme()
       <VerticalNavLink :item="{
         title: 'Colores',
         icon: 'bxs-color',
-        to: '/cards',
+        to: '/colores',
       }" />
       <VerticalNavLink :item="{
         title: 'Solicitudes',

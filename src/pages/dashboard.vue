@@ -1,75 +1,85 @@
 <script setup>
-
-// 👉 Images
 import chart from '@images/cards/chart-success.png';
-import paypal from '@images/cards/paypal-error.png';
 import wallet from '@images/cards/wallet-info.png';
+import axios from 'axios';
+
+const accessToken = localStorage.getItem('accessToken');
+
+if (!accessToken) {
+  console.error("No se encontró el token de acceso.");
+}
+
+const data = reactive({
+  totalTallas: null,
+  totalColores: null,
+  totalPersonas: null,
+  totalProductos: null
+});
+
+const fetchConteos = () => {
+  axios
+    .get("http://localhost:8000/api/YKSecurity/conteos", {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${accessToken}`
+      }
+    })
+    .then((response) => {
+      const { totalTallas, totalColores, totalPersonas, totalProductos } = response.data;
+      data.totalTallas = totalTallas;
+      data.totalColores = totalColores;
+      data.totalPersonas = totalPersonas;
+      data.totalProductos = totalProductos;
+    })
+    .catch((error) => {
+      console.error("Error al obtener los conteos:", error);
+    });
+};
+
+fetchConteos();
 </script>
 
 <template>
   <VRow>
-
-
     <VCol cols="12" sm="8">
       <VRow>
-        <!-- 👉 Profit -->
-        <VCol cols="12" md="6">
+        <!-- 👉 Total Tallas -->
+        <VCol cols="2" md="8">
           <CardStatisticsVertical v-bind="{
-            title: 'Profit',
+            title: 'Total Tallas',
             image: chart,
-            stats: '$12,628',
-            change: 72.80,
+            stats: data.totalTallas != null ? data.totalTallas.toString() : 'Cargando...'
           }" />
         </VCol>
-        <!-- 👉 Profit -->
-        <VCol cols="12" md="6">
+        <!-- 👉 Total Colores -->
+        <VCol cols="2" md="8">
           <CardStatisticsVertical v-bind="{
-            title: 'Profit',
+            title: 'Total Colores',
             image: chart,
-            stats: '$12,628',
-            change: 72.80,
+            stats: data.totalColores != null ? data.totalColores.toString() : 'Cargando...'
           }" />
         </VCol>
-        <!-- 👉 Profit -->
-        <VCol cols="12" md="6">
+        <!-- 👉 Total Solicitudes -->
+        <VCol cols="2" md="8">
           <CardStatisticsVertical v-bind="{
-            title: 'Profit',
+            title: 'Total Solicitudes',
             image: chart,
-            stats: '$12,628',
-            change: 72.80,
+            stats: data.totalPersonas != null ? data.totalPersonas.toString() : 'Cargando...'
           }" />
         </VCol>
-
-
-        <!-- 👉 Sales -->
-        <VCol cols="12" md="6">
+        <!-- 👉 Total Productos -->
+        <VCol cols="2" md="8">
           <CardStatisticsVertical v-bind="{
-            title: 'Sales',
+            title: 'Total Productos',
             image: wallet,
-            stats: '$4,679',
-            change: 28.42,
+            stats: data.totalProductos != null ? data.totalProductos.toString() : 'Cargando...'
           }" />
         </VCol>
       </VRow>
     </VCol>
-
-
-    <VCol cols="12" sm="8" md="6" order="1" order-md="2">
-      <VRow>
-        <!-- 👉 Payments -->
-        <VCol cols="12" sm="8">
-          <CardStatisticsVertical v-bind="{
-            title: 'Payments',
-            image: paypal,
-            stats: '$2,468',
-            change: -14.82,
-          }" />
-        </VCol>
-
-
-      </VRow>
-
+    <VCol cols="2" sm="8" md="8" order="1" order-md="2">
+      <!-- Otros componentes aquí -->
     </VCol>
-
   </VRow>
 </template>
